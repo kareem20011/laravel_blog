@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Tag_translation extends Model
 {
     use HasFactory;
+    protected $fillable = ['title'];
 }
