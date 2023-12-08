@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\SettingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,16 +13,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('dashboard.index');
-});
-Route::prefix('dashboard')->group(function(){
+})->name('dashboard.index');
+
+Route::group(['prefix'=>'dashboard','as'=>'dashboard.'],function(){
 
 
     Route::get('/setting', function (){
-        return response('settings');
-    })->name('dashboard.setting');
+        return view('dashboard.settings');
+    })->name('setting');
 
+    Route::post('/setting/update',[SettingController::class,'update'])->name('setting.update');
 
 });
