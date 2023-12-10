@@ -14,5 +14,10 @@ return [
     */
 
     'dashboard' => 'Dashboard',
+    'settings' => 'settings',
+    'translation' => 'translation',
+    'logout' => 'logout',
+    'favicon' => 'favicon',
+    'logo' => 'logo',
 
 ];

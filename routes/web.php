@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Dashboard\SettingController;
+use App\Http\Controllers\Dashboard\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,17 +15,31 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/test',function(){
+    return view('welcome');
+});
+
 Route::get('/', function () {
-    return view('dashboard.index');
+    return view('welcome');
 })->name('dashboard.index');
 
-Route::group(['prefix'=>'dashboard','as'=>'dashboard.'],function(){
+Route::group(['prefix'=>'dashboard','as'=>'dashboard.','middleware'=>['auth','CheckUser']],function(){
 
-
+    Route::get('/', function(){
+        return view('dashboard.index');
+    });
     Route::get('/setting', function (){
         return view('dashboard.settings');
     })->name('setting');
 
-    Route::post('/setting/update',[SettingController::class,'update'])->name('setting.update');
+    Route::post('/setting/update/{setting}',[SettingController::class,'update'])->name('setting.update');
+
+    Route::resources([
+        'users' => UserController::class,
+    ]);
 
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

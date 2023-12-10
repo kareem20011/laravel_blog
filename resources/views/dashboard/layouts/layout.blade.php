@@ -26,52 +26,7 @@
     <link href="{{asset('adminAssets/css/simple-line-icons.css')}}" rel="stylesheet">
     <!-- Main styles for this application -->
     <link href="{{asset('adminAssets/dest/style.css')}}" rel="stylesheet">
-
-    <style>
-
-/* Style the tab */
-.tab {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
-  width: 70%;
-}
-
-/* Style the buttons inside the tab */
-.tab button {
-
-  background-color: inherit;
-  float: right;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-  font-size: 17px;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #ccc;
-}
-
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
-  width: 70%;
-}
-.activex{
-    display: block;
-}
-</style>
+    <link href="{{asset('adminAssets/dest/mystyle.css')}}" rel="stylesheet">
 </head>
 <!-- BODY options, add following classes to body to change options
 		1. 'compact-nav'     	  - Switch sidebar to minified version (width 50px)
@@ -104,7 +59,7 @@
             <ul style="margin-left: 2rem;" class="nav navbar-nav pull-left hidden-md-down d-flex">
                 <li class="nav-item dropdown">
                     <a style="display: flex; justify-content: center;align-items:center;  " class="nav-link dropdown-toggle nav-link row" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                        <img src="https://place-hold.it/50" alt="...">
+                        <img src="{{$settings->logo}}" width="30" alt="...">
                         <span style="margin: 0 0.5rem;" class="hidden-md-down">admin</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
@@ -124,7 +79,12 @@
                         <a class="dropdown-item" href="#"><i class="fa fa-file"></i> Projects<span class="tag tag-primary">42</span></a>
                         <div class="divider"></div>
                         <a class="dropdown-item" href="#"><i class="fa fa-shield"></i> Lock Account</a>
-                        <a class="dropdown-item" href="#"><i class="fa fa-lock"></i> Logout</a>
+                        <a class="dropdown-item logout" href="#">
+                            <form class="logout" method="post" action="{{route('logout')}}" >
+                                @csrf
+                                <button class="logout" type="submit"> <i class="fa fa-sign-out"></i> {{__('words.logout')}}</button>
+                            </form>
+                        </a>
                     </div>
                 </li>
 

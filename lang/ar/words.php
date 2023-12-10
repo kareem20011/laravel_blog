@@ -14,5 +14,10 @@ return [
     */
 
     'dashboard' => 'لوحة التحكم',
-    
+    'translation' => 'الترجمة',
+    'settings' => 'الاعدادات',
+    'logo' => 'الشعار',
+    'favicon' => 'صورة مصغرة',
+    'logout' => 'خروج',
+
 ];
