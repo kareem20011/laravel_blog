@@ -9,6 +9,15 @@ use App\Models\SettingTranslation;
 
 class SettingController extends Controller
 {
+
+    // public function index(){
+    //     return view('dashboard.index');
+    // }
+
+    public function edit(){
+        return view('dashboard.settings');
+    }
+
     public function update(Request $request, Setting $setting){
 
         $data = [
@@ -29,16 +38,16 @@ class SettingController extends Controller
 
         if ($request->has('logo')) {
             $fileName = time().'.'.$request->logo->getClientOriginalExtension();
-            $request->logo->move(public_path('uploads'), $fileName);
-            $setting->update(['logo'=>'uploads/'.$fileName]);
+            $request->logo->move(public_path('dashboard/uploads/'), $fileName);
+            $setting->update(['logo'=>'dashboard/uploads/'.$fileName]);
 
         }
 
 
         if ($request->has('favicon')) {
             $fileName = time().'.'.$request->favicon->getClientOriginalExtension();
-            $request->favicon->move(public_path('uploads'), $fileName);
-            $setting->update(['favicon'=>'uploads/'.$fileName]);
+            $request->favicon->move(public_path('dashboard/uploads/'), $fileName);
+            $setting->update(['favicon'=>'dashboard/uploads/'.$fileName]);
 
         }
         $setting->update($request->except(['logo','favicon']));

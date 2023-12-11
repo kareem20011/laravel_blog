@@ -25,18 +25,21 @@ Route::get('/', function () {
 
 Route::group(['prefix'=>'dashboard','as'=>'dashboard.','middleware'=>['auth','CheckUser']],function(){
 
-    Route::get('/', function(){
+    // Route::get('/', [SettingController::class,'index'])->name('index');
+    Route::get('/home', function(){
         return view('dashboard.index');
-    });
-    Route::get('/setting', function (){
-        return view('dashboard.settings');
-    })->name('setting');
+    })->name('index');
+
+
+    Route::get('/setting', [SettingController::class,'edit'])->name('setting');
 
     Route::post('/setting/update/{setting}',[SettingController::class,'update'])->name('setting.update');
 
-    Route::resources([
-        'users' => UserController::class,
-    ]);
+    Route::get('/users/all',[UserController::class,'getUserDataTable'])->name('users.all');
+    Route::post('/users/delete',[UserController::class,'delete'])->name('users.delete');
+    Route::get('/users/addUser',[UserController::class,'addUser'])->name('users.addUser');
+
+    Route::resources(['users' => UserController::class,]);
 
 });
 

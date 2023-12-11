@@ -22,6 +22,7 @@ return new class extends Migration
             $table->enum('status',['writer','admin'])->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -51,9 +51,9 @@ body {
     width: 100%;
     max-width: none !important;
 }
-.setting_form h1 {
+h1 {
     text-align: center;
-    font-weight: bold;
+    font-weight: bold !important;
     font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
     margin: 2rem !important;
@@ -61,8 +61,9 @@ body {
 .setting_form img {
     width: 100px;
     border-radius: 50%;
+    margin: 1rem 0;
 }
-.setting_form input {
+input ,select {
     font-size: 16px !important;
 }
 .setting_form button {
@@ -70,3 +71,21 @@ body {
     margin: 2rem auto !important;
 }
 /* end setting from  */
+
+
+/* table style */
+#table_id th{
+    text-align: right !important;
+}
+#logout_form:hover{
+    background: #20a8d8;
+    outline: none;
+    border: none;
+}
+#user_logo{
+    border-radius: 50%;
+    width: 40px;
+}
+#deletemodal button{
+    color: black !important ;
+}

@@ -26,6 +26,7 @@
     <link href="{{asset('adminAssets/css/simple-line-icons.css')}}" rel="stylesheet">
     <!-- Main styles for this application -->
     <link href="{{asset('adminAssets/dest/style.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css">
     <link href="{{asset('adminAssets/dest/mystyle.css')}}" rel="stylesheet">
 </head>
 <!-- BODY options, add following classes to body to change options
@@ -52,15 +53,20 @@
                     <a class="nav-link" href="{{route('dashboard.index')}}">{{__('words.dashboard')}}</a>
                 </li>
                 <li class="nav-item p-x-1">
-                    <a class="nav-link" href="#">Users</a>
+                    <a class="nav-link" href="#">{{__('words.users')}}</a>
                 </li>
 
             </ul>
             <ul style="margin-left: 2rem;" class="nav navbar-nav pull-left hidden-md-down d-flex">
                 <li class="nav-item dropdown">
                     <a style="display: flex; justify-content: center;align-items:center;  " class="nav-link dropdown-toggle nav-link row" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                        <img src="{{$settings->logo}}" width="30" alt="...">
-                        <span style="margin: 0 0.5rem;" class="hidden-md-down">admin</span>
+                        @if(empty($settings->logo))
+                        <img id="user_logo" src="{{asset('adminAssets/img/notfound.png')}}" alt="">
+                        @elseif($settings->logo)
+                        <img src="{{asset($settings->logo)}}" id="user_logo" alt="...">
+                        
+                        @endif
+                        <span style="margin: 0 0.5rem;" class="hidden-md-down">{{Auth::user()->name;}}</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="dropdown-header text-xs-center">
@@ -157,7 +163,11 @@
     <script src="{{asset('adminAssets/js/views/main.js')}}"></script>
 
     <!-- Grunt watch plugin -->
-    <script src="//localhost:35729/livereload.js"></script>
+    <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.8/js/dataTables.bootstrap5.min.js"></script>
+
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
 
 
     <script>
@@ -176,6 +186,9 @@ function openCity(evt, cityName) {
   evt.currentTarget.className += " active";
 }
 </script>
+
+
+@stack('javascript')
 </body>
 
 </html>
