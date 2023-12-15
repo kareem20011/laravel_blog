@@ -55,6 +55,25 @@
                 </li>
 
 
+
+
+                <!-- languages -->
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa-solid fa-language"></i> {{LaravelLocalization::getCurrentLocaleNative()}}</a>
+                    <ul class="nav-dropdown-items">
+                        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                        <li class="nav-item">
+                            <a style="font-size: 14px" class="nav-link" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                <i class="fa-solid fa-earth-americas"></i>{{ $properties['native'] }}
+                            </a>
+                        </li>
+                        @endforeach
+                    </ul>
+                </li>
+
+
+
+
                 <!-- logout button -->
 
                 <li class="nav-item">

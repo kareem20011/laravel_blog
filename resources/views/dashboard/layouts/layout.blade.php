@@ -7,7 +7,6 @@
  -->
  <!DOCTYPE html>
 <html lang="IR-fa" dir="rtl">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +16,10 @@
     <meta name="keyword" content="CoreUI Bootstrap 4 Admin Template">
     <!-- <link rel="shortcut icon" href="assets/ico/favicon.png"> -->
     <title>Laravel-blog</title>
+
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="{{asset($settings->favicon)}}">
 
     <!-- tailwindcss -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -74,22 +77,7 @@
                         <span style="margin: 0 0.5rem;" class="hidden-md-down">{{Auth::user()->status;}}</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <div class="dropdown-header text-xs-center">
-                            <strong>Account</strong>
-                        </div>
-                        <a class="dropdown-item" href="#"><i class="fa fa-bell-o"></i> Updates<span class="tag tag-info">42</span></a>
-                        <a class="dropdown-item" href="#"><i class="fa fa-envelope-o"></i> Messages<span class="tag tag-success">42</span></a>
-                        <a class="dropdown-item" href="#"><i class="fa fa-tasks"></i> Tasks<span class="tag tag-danger">42</span></a>
-                        <a class="dropdown-item" href="#"><i class="fa fa-comments"></i> Comments<span class="tag tag-warning">42</span></a>
-                        <div class="dropdown-header text-xs-center">
-                            <strong>Settings</strong>
-                        </div>
-                        <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a>
-                        <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Settings</a>
-                        <a class="dropdown-item" href="#"><i class="fa fa-usd"></i> Payments<span class="tag tag-default">42</span></a>
-                        <a class="dropdown-item" href="#"><i class="fa fa-file"></i> Projects<span class="tag tag-primary">42</span></a>
-                        <div class="divider"></div>
-                        <a class="dropdown-item" href="#"><i class="fa fa-shield"></i> Lock Account</a>
+
                         <a class="dropdown-item logout" href="#">
                             <form class="logout" method="post" action="{{route('logout')}}" >
                                 @csrf
@@ -97,12 +85,24 @@
                             </form>
                         </a>
                     </div>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                            <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                <i class="fa-solid fa-earth-americas"></i>{{ $properties['native'] }}
+                            </a>
+                        @endforeach
+                        <a class="dropdown-item logout" href="#">
+                            <form class="logout" method="post" action="{{route('logout')}}" >
+                                @csrf
+                                <button class="logout" type="submit"> <i class="fa fa-sign-out"></i> {{__('words.logout')}}</button>
+                            </form>
+                        </a>
+
+                    </div>
                 </li>
 
-
-            </ul>
-        </div>
-    </header>
+            </div>
+        </header>
 
     <!-- Main content -->
     <main class="main">

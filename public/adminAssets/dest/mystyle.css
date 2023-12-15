@@ -58,7 +58,7 @@ h1 {
     text-transform: uppercase;
     margin: 2rem !important;
 }
-.setting_form img ,.category_edit{
+.setting_form img , .edit_page{
     width: 100px;
     border-radius: 50%;
     margin: 1rem 0;

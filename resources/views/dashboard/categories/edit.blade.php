@@ -20,7 +20,7 @@
                 <h1>{{__('words.addCategory')}}</h1>
             </div>
             <div class="card-bolck">
-                <img class="category_edit" src="{{asset($category->image)}}" alt="">
+                <img class="edit_page" src="{{asset($category->image)}}" alt="">
                 <input type="file" name="img" class="block w-1/2 p-4 text-gray-900 border border-gray-300 rounded-md bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 my-5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <select name="parent" class="block w-1/2 p-4 text-gray-900 border border-gray-300 rounded-md bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 my-5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option value="0" >{{__('words.mainContent')}}</option>

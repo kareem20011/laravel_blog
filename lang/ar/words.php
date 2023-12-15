@@ -51,6 +51,8 @@ return [
     'posts'=>'المنشورات',
     'addPost'=>'اضافة منشور',
     'tags'=>'علامات',
-    'smallDesc'=> 'شرح بسيط'
+    'smallDesc'=> 'شرح بسيط',
+    'editPost'=> 'تعديل المنشور',
+    'languages'=> 'اللغات',
 
 ];

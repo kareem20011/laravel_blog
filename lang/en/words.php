@@ -52,5 +52,7 @@ return [
     'addPost'=>'Add post',
     'tags'=>'Tags',
     'smallDesc'=>'Small description',
+    'editPost'=>'Edit post',
+    'languages'=>'Languages',
 
 ];
