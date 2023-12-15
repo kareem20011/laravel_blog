@@ -15,16 +15,18 @@
         <div class="card">
             <div class="card-header">
                 <i class="fa fa-align-justify"></i>
-                {{__('words.users')}}
+                {{__('words.posts')}}
             </div>
             <div class="card-block">
                 <table class="table table-striped" id="table_id">
                     <thead>
                         <tr>
                             <th>{{__('words.id')}}</th>
-                            <th>{{__('words.name')}}</th>
-                            <th>{{__('words.email')}}</th>
-                            <th>{{__('words.status')}}</th>
+                            <th>{{__('words.title')}}</th>
+                            <th>{{__('words.category')}}</th>
+                            <th>{{__('words.content')}}</th>
+                            <th>{{__('words.smallDesc')}}</th>
+                            <th>{{__('words.tags')}}</th>
                             <th>{{__('words.action')}}</th>
                         </tr>
                     </thead>
@@ -40,7 +42,7 @@
 <!-- Modal -->
 <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <form action="{{route('dashboard.users.delete')}}" method="post">
+    <form action="{{route('dashboard.posts.delete')}}" method="post">
         @csrf
         <div class="modal-content">
             <input type="hidden" name="id" id="id">
@@ -65,12 +67,14 @@
         processing: true,
         serverSide: true,
         order: [[0, "desc"]],
-        ajax: "{{route('dashboard.users.all')}}",
+        ajax: "{{route('dashboard.posts.all')}}",
         columns: [
             {data: 'id', name: 'id'},
-            {data: 'name', name: 'name'},
-            {data: 'email', name: 'email'},
-            {data: 'status', name: 'status'},
+            {data: 'title', name: 'title'},
+            {data: 'category', name: 'category'},
+            {data: 'content', name: 'content'},
+            {data: 'smallDesc', name: 'smallDesc'},
+            {data: 'tags', name: 'tags'},
             {data: 'action', name: 'action'}
         ]
     })

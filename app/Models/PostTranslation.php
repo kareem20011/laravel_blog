@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class PostTranslation extends Model
 {
     use HasFactory;
-    protected $fillable = ['title', 'content'];
+    protected $fillable = ['tags', 'title', 'content'];
 }

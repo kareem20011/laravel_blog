@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\CategoryController;
+use App\Http\Controllers\Dashboard\PostsController;
 use App\Http\Controllers\Dashboard\SettingController;
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -44,9 +45,15 @@ Route::group(['prefix'=>'dashboard','as'=>'dashboard.','middleware'=>['auth','Ch
     Route::get('/category/all',[CategoryController::class,'getCategoriesDataTable'])->name('category.all');
     Route::post('/category/delete',[CategoryController::class,'delete'])->name('category.delete');
 
+
+    Route::get('/posts/all',[PostsController::class,'getPostsDataTable'])->name('posts.all');
+    Route::post('/posts/delete',[PostsController::class,'delete'])->name('posts.delete');
+
+
     Route::resources([
         'users' => UserController::class,
         'category' => CategoryController::class,
+        'posts' => PostsController::class,
     ]);
 
 });

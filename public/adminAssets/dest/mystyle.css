@@ -89,3 +89,7 @@ input ,select {
 #deletemodal button{
     color: black !important ;
 }
+.active{
+    color: white;
+    background-color: #3c3a63 !important;
+}

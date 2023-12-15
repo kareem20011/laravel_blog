@@ -47,6 +47,10 @@ return [
     'mainContent'=>'Main content',
     'address'=>'Address',
     'id'=>'Id',
-    'parent'=>'parent'
+    'parent'=>'Parent',
+    'posts'=>'Posts',
+    'addPost'=>'Add post',
+    'tags'=>'Tags',
+    'smallDesc'=>'Small description',
 
 ];

@@ -16,10 +16,16 @@
     <meta name="author" content="Lukasz Holeczek">
     <meta name="keyword" content="CoreUI Bootstrap 4 Admin Template">
     <!-- <link rel="shortcut icon" href="assets/ico/favicon.png"> -->
-    <title>CoreUI Bootstrap 4 Admin Template</title>
+    <title>Laravel-blog</title>
 
     <!-- tailwindcss -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+
+
+
+
+
 
     <!-- Icons -->
     <link href="{{asset('adminAssets/css/font-awesome.min.css')}}" rel="stylesheet">
@@ -27,6 +33,7 @@
     <!-- Main styles for this application -->
     <link href="{{asset('adminAssets/dest/style.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.8/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="{{asset('adminAssets/dest/mystyle.css')}}" rel="stylesheet">
 </head>
 <!-- BODY options, add following classes to body to change options
@@ -51,9 +58,6 @@
 
                 <li class="nav-item p-x-1">
                     <a class="nav-link" href="{{route('dashboard.index')}}">{{__('words.dashboard')}}</a>
-                </li>
-                <li class="nav-item p-x-1">
-                    <a class="nav-link" href="#">{{__('words.users')}}</a>
                 </li>
 
             </ul>
@@ -188,8 +192,23 @@ function openCity(evt, cityName) {
 }
 </script>
 
-
 @stack('javascript')
+
+<!-- ckeditor -->
+
+<script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script>
+
+<script>
+    let editor = document.querySelectorAll('#editor')
+    for (let i = 0; i < editor.length; ++i) {
+        ClassicEditor.create(editor[i])
+        .catch((error) => {
+          console.error(error);
+        });
+
+    }
+</script>
+
 </body>
 
 </html>

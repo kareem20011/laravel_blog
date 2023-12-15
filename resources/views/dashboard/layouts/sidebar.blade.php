@@ -5,25 +5,57 @@
                     <a class="nav-link" href="{{route('dashboard.index')}}"><i class="icon-speedometer"></i> {{__('words.dashboard')}}</a>
                 </li>
 
+
+
+                <!-- users button -->
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i> {{__('words.users')}}</a>
+                    <ul class="nav-dropdown-items">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('dashboard.users.index')}}"><i class="fa fa-users" aria-hidden="true"></i> {{__('words.users')}}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('dashboard.users.addUser')}}"><i class="fa fa-user-plus" aria-hidden="true"></i>{{__('words.addUsers')}}</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <!-- category button -->
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i> {{__('words.category')}}</a>
+                    <ul class="nav-dropdown-items">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('dashboard.category.index')}}"><i class="fa fa-table"></i>{{__('words.category')}}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('dashboard.category.create')}}"><i class="fa fa-plus"></i>{{__('words.addCategory')}}</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <!-- category button -->
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i> {{__('words.posts')}}</a>
+                    <ul class="nav-dropdown-items">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('dashboard.posts.index')}}"><i class="fa fa-signs-post"></i></i>{{__('words.posts')}}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('dashboard.posts.create')}}"><i class="fa fa-plus"></i>{{__('words.addPost')}}</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <!-- settings button -->
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('dashboard.setting')}}"><i class="fa fa-cog" aria-hidden="true"></i> {{__('words.settings')}}</a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('dashboard.users.index')}}"><i class="fa fa-users" aria-hidden="true"></i> {{__('words.users')}}</a>
-                </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('dashboard.users.addUser')}}"><i class="fa fa-user-plus" aria-hidden="true"></i>{{__('words.addUsers')}}</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('dashboard.category.index')}}"><i class="fa fa-table"></i>{{__('words.category')}}</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('dashboard.category.create')}}"><i class="fa fa-table"></i>{{__('words.addCategory')}}</a>
-                </li>
+                <!-- logout button -->
 
                 <li class="nav-item">
                     <form id="logout_form" method="post" action="{{route('logout')}}" >

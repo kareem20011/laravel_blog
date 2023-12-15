@@ -15,6 +15,7 @@
         <div class="card">
             <div class="card-header">
                 <i class="fa fa-align-justify"></i>
+                {{__('words.category')}}
             </div>
             <div class="card-block">
                 <table class="table table-striped" id="table_id">
