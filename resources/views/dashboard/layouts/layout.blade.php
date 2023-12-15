@@ -64,9 +64,10 @@
                         <img id="user_logo" src="{{asset('adminAssets/img/notfound.png')}}" alt="">
                         @elseif($settings->logo)
                         <img src="{{asset($settings->logo)}}" id="user_logo" alt="...">
-                        
+
                         @endif
                         <span style="margin: 0 0.5rem;" class="hidden-md-down">{{Auth::user()->name;}}</span>
+                        <span style="margin: 0 0.5rem;" class="hidden-md-down">{{Auth::user()->status;}}</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
                         <div class="dropdown-header text-xs-center">

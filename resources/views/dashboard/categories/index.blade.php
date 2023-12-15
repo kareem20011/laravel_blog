@@ -5,9 +5,9 @@
     <div class="alert alert-danger">{{__('words.deleteError')}}</div>
 
 @endif
-
 @if(session()->has('success'))
     <div class="alert alert-success">{{__('words.deleteSuccess')}}</div>
+
 @endif
 
 <div class="container-fluid">
@@ -20,10 +20,8 @@
                 <table class="table table-striped" id="table_id">
                     <thead>
                         <tr>
-                            <th>{{__('words.id')}}</th>
-                            <th>{{__('words.name')}}</th>
-                            <th>{{__('words.email')}}</th>
-                            <th>{{__('words.status')}}</th>
+                            <th>{{__('words.title')}}</th>
+                            <th>{{__('words.parent')}}</th>
                             <th>{{__('words.action')}}</th>
                         </tr>
                     </thead>
@@ -39,7 +37,7 @@
 <!-- Modal -->
 <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <form action="{{route('dashboard.users.delete')}}" method="post">
+    <form action="{{route('dashboard.category.delete')}}" method="post">
         @csrf
         <div class="modal-content">
             <input type="hidden" name="id" id="id">
@@ -64,13 +62,11 @@
         processing: true,
         serverSide: true,
         order: [[0, "desc"]],
-        ajax: "{{route('dashboard.users.all')}}",
+        ajax: "{{route('dashboard.category.all')}}",
         columns: [
-            {data: 'id', name: 'id'},
-            {data: 'name', name: 'name'},
-            {data: 'email', name: 'email'},
-            {data: 'status', name: 'status'},
-            {data: 'action', name: 'action'}
+            {data: 'title', name: 'title'},
+            {data: 'parent', name: 'parent'},
+            {data: 'action', name: 'action'},
         ]
     })
 

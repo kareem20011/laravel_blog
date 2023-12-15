@@ -38,6 +38,15 @@ return [
     'action'=>'Action',
     'addUsers'=>'Add user',
     'password'=>'Password',
-    'success'=>'added successfully'
+    'success'=>'Added successfully',
+    'addCategory'=>'Add category',
+    'category'=>'Categories',
+    'img'=>'Image',
+    'title'=>'Title',
+    'content'=>'Content',
+    'mainContent'=>'Main content',
+    'address'=>'Address',
+    'id'=>'Id',
+    'parent'=>'parent'
 
 ];

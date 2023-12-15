@@ -35,5 +35,17 @@ return [
     'id'=>'رقم تعريف',
     'action'=>'الحدث',
     'addUsers'=>'اضافة مستخدم',
-    'success'=>'تم الاضافة بنجاح'
+    'success'=>'تم الاضافة بنجاح',
+    'password'=>'كلمة المرور',
+    'addCategory'=>'اضافة فئة',
+    'category'=>'الفئات',
+    'img'=>'صورة',
+    'content'=> 'المحتوي',
+    'mainContent'=>'محتوي رئيسي',
+    'phone'=>'الهاتف',
+    'instagram'=>'انستجرام',
+    'facebook'=>'فيسبوك',
+    'address'=>'العنوان',
+    'title'=>'العنوان',
+    'parent'=>'الاب',
 ];

@@ -42,7 +42,8 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'status'=> 'required|in:null,admin,writer'
+            'status'=> 'required|in:null,admin,writer',
+            'password'=>'required',
         ]);
         $data = $request->all();
         $data['password'] = Hash::make($request->password);

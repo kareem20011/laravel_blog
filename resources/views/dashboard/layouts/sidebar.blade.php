@@ -18,6 +18,14 @@
                 </li>
 
                 <li class="nav-item">
+                    <a class="nav-link" href="{{route('dashboard.category.index')}}"><i class="fa fa-table"></i>{{__('words.category')}}</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('dashboard.category.create')}}"><i class="fa fa-table"></i>{{__('words.addCategory')}}</a>
+                </li>
+
+                <li class="nav-item">
                     <form id="logout_form" method="post" action="{{route('logout')}}" >
                         @csrf
                         <button class="nav-link" href="{{route('logout')}}" type="submit"><i style="margin: 1rem;color: #b0bec5;" class="fa fa-sign-out"></i> {{__('words.logout')}}</button>
