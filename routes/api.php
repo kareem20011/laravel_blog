@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\api\CategoryController;
+use App\Http\Controllers\api\PostController;
+use App\Http\Controllers\api\SettingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/', [PostController::class, 'index']);
+Route::get('settings', [SettingController::class, 'index']);
+Route::get('/category', [CategoryController::class, 'navbarCategories']);
