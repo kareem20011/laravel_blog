@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\CategroyController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\PostsController;
 use App\Http\Controllers\Dashboard\SettingController;
 use App\Http\Controllers\Dashboard\UserController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -17,21 +20,26 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/test',function(){
-    return view('welcome');
-});
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('dashboard.index');
+
+
+
+Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/categories/{category}', [CategroyController::class,'show'])->name('category');
+Route::get('/post/{post}', [PostController::class,'show'])->name('post');
+
+
+
+
+
+
+
+
+
+
+// dashboard
 
 Route::group(['prefix'=>'dashboard','as'=>'dashboard.','middleware'=>['auth','CheckUser']],function(){
-
-    // Route::get('/', [SettingController::class,'index'])->name('index');
-    Route::get('/home', function(){
-        return view('dashboard.index');
-    })->name('index');
-
 
     Route::get('/setting', [SettingController::class,'edit'])->name('setting');
 
@@ -57,6 +65,7 @@ Route::group(['prefix'=>'dashboard','as'=>'dashboard.','middleware'=>['auth','Ch
     ]);
 
 });
+
 
 Auth::routes();
 

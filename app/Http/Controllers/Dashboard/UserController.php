@@ -11,6 +11,7 @@ use Yajra\DataTables\Facades\DataTables;
 
 class UserController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -68,10 +69,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        $user = User::find($id);
-        // dd($user);
+        $this->authorize('update', $user);
         return view('dashboard.users.edit')->with('user',$user);
     }
 
@@ -82,12 +82,17 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        User::where('id',$id)->update([
+        $this->authorize('update', $user);
+        if ($request->has('status')) {
+            User::where('id',$user->id)->update([
+                'status'=>$request->status
+            ]);
+        }
+        User::where('id',$user->id)->update([
             'name'=>$request->name,
             'email'=>$request->email,
-            'status'=>$request->status
         ]);
         return redirect()->route('dashboard.users.index');
     }
@@ -103,6 +108,8 @@ class UserController extends Controller
         //
     }
     public function delete(Request $request){
+        $this->authorize('update', $request);
+
         $users = User::find(request()->id);
         if ($users->status == 'admin') {
             return redirect()->back()->with('error' , 'this user is admin');
@@ -111,8 +118,13 @@ class UserController extends Controller
         return redirect()->back()->with('success' , 'success') ;
     }
 
-    public function getUserDataTable() {
-        $data = User::select('*');
+    public function getUserDataTable(User $user) {
+        if (auth()->user()->can('viewAny', $user)) {
+            $data = User::select('*');
+        }else{
+            $data = User::where('id', auth()->user()->id);
+
+        }
         $users = DataTables::of($data)
             ->addIndexColumn()
             ->addColumn('action', function($row){

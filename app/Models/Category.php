@@ -7,12 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Staudenmeir\EloquentEagerLimit\HasEagerLimit;
 
 class Category extends Model implements TranslatableContract
 {
-    use Translatable;
-    use HasFactory;
-    use SoftDeletes;
+    use Translatable, HasFactory, SoftDeletes, HasEagerLimit;
 
 
     public $translatedAttributes = ['title', 'content'];

@@ -93,3 +93,18 @@ input ,select {
     color: white;
     background-color: #3c3a63 !important;
 }
+
+
+.vamiddle
+{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: 100vh !important;
+    /* width: 100% !important; */
+}
+@media screen and (max-width: 770px ) {
+    #regester_parent{
+        display: none;
+    }
+}

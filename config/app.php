@@ -82,11 +82,10 @@ return [
     |
     */
 
-    'locale' => 'ar',
+    'locale' => 'en',
     'languages'=>[
         'ar'=>'العربية',
         'en'=>'English',
-        'fr'=>'français'
     ],
 
     /*

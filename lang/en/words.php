@@ -17,6 +17,8 @@ return [
     'users' => 'Users',
     'settings' => 'Settings',
     'translation' => 'Translation',
+    'login' => 'Login',
+    'register' => 'Register',
     'logout' => 'Logout',
     'favicon' => 'Favicon',
     'logo' => 'Logo',
@@ -52,7 +54,12 @@ return [
     'addPost'=>'Add post',
     'tags'=>'Tags',
     'smallDesc'=>'Small description',
-    'editPost'=>'Edit post',
+    'editPost'=>'Update post',
     'languages'=>'Languages',
+    'profile'=>'Edit profile',
+    'home'=>'Home',
+    'tranding'=>'Tranding',
+    'viewAll'=>'View All',
+    'website'=>'Website'
 
 ];

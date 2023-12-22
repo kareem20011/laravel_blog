@@ -14,6 +14,7 @@
 <form action="{{route('dashboard.posts.store')}}" method="post" enctype="multipart/form-data">
     @csrf
     @method('post')
+    <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
     <div class="card">
     @if(session()->has('success'))
     <div class="alert alert-success text-center" role="alert">

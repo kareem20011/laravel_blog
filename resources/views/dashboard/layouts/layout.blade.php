@@ -15,7 +15,7 @@
     <meta name="author" content="Lukasz Holeczek">
     <meta name="keyword" content="CoreUI Bootstrap 4 Admin Template">
     <!-- <link rel="shortcut icon" href="assets/ico/favicon.png"> -->
-    <title>Laravel-blog</title>
+    <title>{{$settings->title}}</title>
 
 
     <!-- favicon -->
@@ -55,12 +55,9 @@
             <button class="navbar-toggler mobile-toggler hidden-lg-up" type="button">&#9776;</button>
             <a class="navbar-brand" href="#"></a>
             <ul class="nav navbar-nav hidden-md-down">
+
                 <li class="nav-item">
                     <a class="nav-link navbar-toggler layout-toggler" href="#">&#9776;</a>
-                </li>
-
-                <li class="nav-item p-x-1">
-                    <a class="nav-link" href="{{route('dashboard.index')}}">{{__('words.dashboard')}}</a>
                 </li>
 
             </ul>

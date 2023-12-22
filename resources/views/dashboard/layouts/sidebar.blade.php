@@ -2,11 +2,11 @@
         <nav class="sidebar-nav">
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('dashboard.index')}}"><i class="icon-speedometer"></i> {{__('words.dashboard')}}</a>
+                    <a class="nav-link" href="{{route('index')}}"><i class="icon-speedometer"></i> {{__('words.website')}}</a>
                 </li>
 
 
-
+                @can('viewAny', App\Models\User::class)
                 <!-- users button -->
                 <li class="nav-item nav-dropdown">
                     <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i> {{__('words.users')}}</a>
@@ -19,7 +19,7 @@
                         </li>
                     </ul>
                 </li>
-
+                @endcan
 
                 <!-- category button -->
                 <li class="nav-item nav-dropdown">
@@ -28,14 +28,16 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('dashboard.category.index')}}"><i class="fa fa-table"></i>{{__('words.category')}}</a>
                         </li>
+                        @can('view', $settings)
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('dashboard.category.create')}}"><i class="fa fa-plus"></i>{{__('words.addCategory')}}</a>
                         </li>
+                        @endcan
                     </ul>
                 </li>
 
 
-                <!-- category button -->
+                <!-- post button -->
                 <li class="nav-item nav-dropdown">
                     <a class="nav-link nav-dropdown-toggle" href="#"><i class="icon-puzzle"></i> {{__('words.posts')}}</a>
                     <ul class="nav-dropdown-items">
@@ -49,12 +51,18 @@
                 </li>
 
 
+                @can('view', $settings)
                 <!-- settings button -->
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('dashboard.setting')}}"><i class="fa fa-cog" aria-hidden="true"></i> {{__('words.settings')}}</a>
                 </li>
+                @endcan
 
 
+                <!-- profile button -->
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link" href="{{route('dashboard.users.edit', auth()->user()->id)}}"><i class="fas fa-edit"></i> {{__('words.profile')}}</a>
+                </li>
 
 
                 <!-- languages -->

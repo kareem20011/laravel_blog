@@ -19,6 +19,8 @@ return [
     'settings' => 'الاعدادات',
     'logo' => 'الشعار',
     'favicon' => 'صورة مصغرة',
+    'login' => 'تسجيل دخول',
+    'register' => 'انضمام',
     'logout' => 'خروج',
     'close' => 'اغلاق',
     'delete' => 'خذف',
@@ -54,5 +56,10 @@ return [
     'smallDesc'=> 'شرح بسيط',
     'editPost'=> 'تعديل المنشور',
     'languages'=> 'اللغات',
+    'profile'=> 'البيانات الشخصية',
+    'home'=> 'الصفحة الرئيسية',
+    'tranding'=>'متداول',
+    'viewAll'=>'عرض الكل',
+    'website'=>'الموقع'
 
 ];

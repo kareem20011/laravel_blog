@@ -4,25 +4,35 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use PhpParser\Node\Stmt\Return_;
 use Yajra\DataTables\Facades\DataTables;
 
 
 class CategoryController extends Controller
 {
+    protected $setting;
 
+    public function __construct(Setting $setting)
+    {
+        $this->setting = $setting;
+    }
 
     public function getCategoriesDataTable() {
         $data = Category::select('*')->with('parent');
+        $response = 1;
         return DataTables::of($data)
             ->addIndexColumn()
             ->addColumn('action', function($row){
+                if (auth()->user()->can('viewAny', $this->setting)){
                 return $btn = '
                 <a class="edit btn btn-success btn-sm" href=" ' . Route('dashboard.category.edit', $row->id) . ' " ><i class="fa fa-edit"></i></a>
                 <a id="deletBtn" data-id="' .$row->id . '"class="edit btn btn-danger btn-sm" data-toggle="modal"
                 data-target="#deletemodal"><i class="fa fa-trash"></i></a>';
-            })
+                }
+    })
             ->addColumn('parent', function($row){
                 // return ($row->parent == 0) ? trans('words.mainContent') : $row->parent->translate(app()->getLocale())->title ;
                 if ($row->parent == 0) {
@@ -61,6 +71,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
+        $this->authorize('viewAny', $this->setting);
         // $categories = Category::all();
         $categories = Category::where('parent', 0)->get();
 
